@@ -97,6 +97,18 @@ class HashMap {
         this.buckets = new Array(this.capacity);
         this.size = 0;
     }
+
+    keys(){
+        const result = [];
+
+        for(let bucket of this.buckets){
+            if(bucket){
+                for(let entry of bucket) result.push(entry[0]);
+            }
+        }
+
+        return result;
+    }
 }
 
 export { HashMap }

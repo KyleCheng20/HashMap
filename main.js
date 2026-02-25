@@ -5,5 +5,11 @@ console.log(hashMap.buckets);
 
 hashMap.set("apple", "red");
 hashMap.set("apple", "green");
+hashMap.set("banana", "ripe");
+hashMap.set("pear", "sweet");
+
+
 
 console.log(hashMap.size); 
+
+console.log(hashMap.keys());
