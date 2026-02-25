@@ -109,6 +109,18 @@ class HashMap {
 
         return result;
     }
+
+    values(){
+        const result = [];
+
+        for(let bucket of this.buckets){
+            if(bucket){
+                for(let entry of bucket) result.push(entry[1]);
+            }
+        }
+
+        return result;
+    }
 }
 
 export { HashMap }

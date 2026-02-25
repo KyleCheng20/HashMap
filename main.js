@@ -13,3 +13,4 @@ hashMap.set("pear", "sweet");
 console.log(hashMap.size); 
 
 console.log(hashMap.keys());
+console.log(hashMap.values());
