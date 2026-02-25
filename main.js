@@ -14,3 +14,5 @@ console.log(hashMap.size);
 
 console.log(hashMap.keys());
 console.log(hashMap.values());
+console.log(hashMap.entries());
+
