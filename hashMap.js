@@ -17,6 +17,19 @@ class HashMap {
         return hashCode;
     }
 
+    resize(){
+        const oldBuckets = this.buckets;
+        this.capacity *= 2;
+        this.buckets = new Array(this.capacity);
+        this.size = 0;
+
+        for(let bucket of oldBuckets){
+            if(bucket){
+                for(let entry of bucket) this.set(entry[0], entry[1]);
+            }
+        }
+    }
+
     set(key, value){
         const index = this.hash(key);
 
@@ -32,7 +45,7 @@ class HashMap {
             return;
         }
 
-        // Check is the same key in this bucket exists
+        // Check if the same key in this bucket exists to overwrite
         for(let keysEntry of this.buckets[index]){
             if(keysEntry[0] === key){
                 keysEntry[1] = value;
@@ -43,6 +56,8 @@ class HashMap {
         // If key is not in bucket then add new
         this.buckets[index].push([key, value]);
         this.size++;
+
+        if(this.size >= this.capacity * this.loadFactor) this.resize();
     }
 
     get(key){
